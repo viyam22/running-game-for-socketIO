@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no">
+  <title>“一起跑吧”游戏客户端</title>
+  <script src="./vConsole.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login" id="loginPage">
+    <!-- <input type="" id="inputName" name="" placeholder="请为您的角色起一个名字"> -->
+    <div class="nickname" id="nickname"></div>
+    <div class="btn" id="login">进入游戏</div>
+    <p id="loginTip"></p>
+  </div>
+  <div class="play" id="playPage" style="display: none">
+    <p id="userName">你是【用户1】</p>
+    <p id="resultTxt"></p>
+    <div class="shake-box"><div class="shake-tip" id="shakeTip">摇一摇进行游戏</div></div>
+    
+  </div>
+
+  <audio id="shakeMusic" src="./assets/shake_sound.mp3"></audio>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+  <script src="../socket.io/socket.io.js"></script>
+  <script src="./index.js"></script>
+  
+</body>
+</html>

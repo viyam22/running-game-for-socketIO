@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no">
+  <script src="./vConsole.min.js"></script>
+  <title>跳转中...</title>
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  
+<div id="info"></div>
+  
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+<script>
+$(document).ready(function() {
+  getInfo()
+});
+  
+function getInfo() {
+  $.ajax({
+    url: 'http://demo.pflm.cn/demoAuth/userInfo',
+    data: '',
+    type: 'get',
+    dataType: 'json',
+    async: true,
+    success: function(data) {
+      console.log(data);
+      $('#info').text('nickname' + data.nickname);
+      window.location.href = 'http://192.168.1.247:3000/m/index.html?nickname=' 
+        + data.nickname + '&headimgurl=' + data.headimgurl;
+      // window.location.href = 'http://192.168.1.247:3000/m/index.html';
+    },
+    complete: function(XMLHttpRequest, textStatus) {
+      if (textStatus !== 'success') {
+        $('#info').text('请在微信打开！');
+      }
+    }
+  })
+}
+</script>
+</body>
+</html>
